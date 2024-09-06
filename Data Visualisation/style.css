@@ -1,0 +1,161 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightskyblue;
+    color: #000;
+}
+
+/* Footer styling */
+footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+    border-top: 3px solid #2c3e50;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.nav{
+    position:fixed;/* make the nav bar follow as you scroll*/
+    display: flex;/* alignment to move vertically o horinzontally   */
+    justify-content: space-around;/* make the property flexible  */
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;/* line of the height*/
+    background: linear-gradient(rgba(39,39,39, 0.6), transparent);/* add shader on the top part of the page */
+    z-index: 100;/* add layering  */
+    align-items: center;
+    
+    }
+
+.nav a{
+    position: relative;
+    color: #000;
+    font-size: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    
+}
+
+.nav-name{
+    position:relative;
+    color: #000;
+    font-size: 20px;
+
+}
+.datavis{
+    padding-top: 100px;
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
+
+}
+
+.main-box{
+    padding-top: 100px;
+    display: flex;
+    position: relative;
+    margin-right: 50%;
+    
+    
+}
+
+.lab1{
+   padding-right: 50px;
+   padding-left: 50px;
+   background: lightgrey;
+   width: auto;
+   height: auto;
+   border-radius: 50px;
+   margin-left: 50px;
+
+}
+.lab1 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box1{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l1{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
+.lab2{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: lightpink;
+    border-radius: 50px;
+    margin-left: 50px;
+}
+
+.lab2 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box2{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l2{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
+.lab3{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: lightgreen;
+    border-radius: 50px;
+    margin-left: 50px;
+}
+
+.lab3 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box3{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l3{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
+
+
+

@@ -38,7 +38,7 @@ function init(){
 
             })
             .attr("fill",function(d){
-                return "rgb(135,206, " + (d.wombats * 8) + ")";
+                return "rgb(144,228, " + (d.wombats * 5) + ")";
             })
         
 
@@ -54,7 +54,7 @@ function init(){
             return i * (w/wombatSightings.length) + 10.5;
         })
         .attr("y",function(d){
-            return h - (d.wombats*4)
+            return h - (d.wombats*4)+15
         })
     }
 
