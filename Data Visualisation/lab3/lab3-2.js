@@ -15,7 +15,7 @@ var dataset = [
 
  
 
- var xScale = d3.scaleLinear()
+ var xScale = d3.scaleLinear() //linear scaling for x value
               
                  .domain([d3.min(dataset,function(d){
                      return d[0];
@@ -25,7 +25,7 @@ var dataset = [
                  })])
                  .range([padding,w-padding-120])
 
- var yScale = d3.scaleLinear()
+ var yScale = d3.scaleLinear() //linear scaling for the y value
              
                  .domain([d3.min(dataset,function(d){
                      return d[1];
@@ -37,16 +37,16 @@ var dataset = [
                  
                 
  
- var svg = d3.select("body")
+ var svg = d3.select("body") 
              .append("svg")
              .attr("width",w)
              .attr("height",h)
 
-var xAxis = d3.axisBottom()
+var xAxis = d3.axisBottom() //to set the scale between each number for the X axis
                  .scale(xScale)
                  .ticks(10);
 
-var yAxis = d3.axisLeft()
+var yAxis = d3.axisLeft() //to set the scale between each number for the Y axis
                  .scale(yScale)
                  .ticks(4);
 
@@ -54,7 +54,7 @@ var yAxis = d3.axisLeft()
             
             
 
- svg.selectAll("circle")
+ svg.selectAll("circle") // to create the circle 
      .data(dataset)
      .enter()
      .append("circle")
