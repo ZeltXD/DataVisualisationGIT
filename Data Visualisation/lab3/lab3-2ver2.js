@@ -4,8 +4,8 @@ var dataset = [
     [8,22,10], [10,11,5], [5,12,5],
     [6,16,10] ];
 
-var w = 500; // define the width of the svg
-var h = 400; // define the height of the svg
+var w = 800; // define the width of the svg
+var h = 300; // define the height of the svg
 var padding = 40; // define padding
 
 var xScale = d3.scaleLinear()
