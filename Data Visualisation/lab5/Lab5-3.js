@@ -9,6 +9,10 @@
                             .range([0, w])
                             .paddingInner(0.05);
 
+            var yScale = d3.scaleLinear()
+                            .domain([0, d3.max(dataset)])
+                            .range([0,h])
+
             // Create SVG container
             var svg1 = d3.select("article.content")
                         .append("svg")
@@ -65,6 +69,8 @@
                 for (var i = 0; i < dataset.length; i++) {
                     newDataset.push(Math.floor(Math.random() * 25));
                 }
+               
+
             var bars = svg1.selectAll("rect")
                 .data(newDataset);
 
@@ -79,60 +85,74 @@
                 .attr("height", function(d) {
                     return d * 4;
                 });
+            });
 
-            bars.exit().remove();
+           
 
-            //transition 1 button
-            d3.select("#transition1Button").on("click", function(){
-                // Generate new random dataset
-                var newDataset = [];
-                for (var i = 0; i < dataset.length; i++) {
-                    newDataset.push(Math.floor(Math.random() * 25));
-                }
+            //adding button
+            d3.select("#addingButton").on("click", function(){
+                var newNumber = Math.floor(Math.random()* 30);
+                dataset.push(newNumber);
+
+                xScale.domain(d3.range(dataset.length));
+               
+
             var bars = svg1.selectAll("rect")
-                .data(newDataset);
+                .data(dataset);
 
-            bars.enter()
+                bars.enter()
                 .append("rect")
+                .attr("x", w)
+                .attr("y", function(d){
+                    return h - yScale(d);
+                })
                 .merge(bars)
                 .transition()
-                .ease(d3.easeBounce)
                 .duration(1000)
-                .attr("y", function(d) {
-                    return h - (d * 4);
+                .attr("x", function(d,i){
+                    return xScale(i);
                 })
-                .attr("height", function(d) {
-                    return d * 4;
+                .attr("y", function(d){
+                    return h - yScale(d);
                 })
-                bars.exit().remove();
+                .attr("width", xScale.bandwidth())
+                .attr("height", function(d){
+                    return yScale(d);
+                })
+                .attr("fill", "rgb(106, 90, 205)");
             });
 
        
 
-             //transition 2 button
-             d3.select("#transition2Button").on("click", function(){
-                // Generate new random dataset
-                var newDataset = [];
-                for (var i = 0; i < dataset.length; i++) {
-                    newDataset.push(Math.floor(Math.random() * 25));
-                }
-            var bars = svg1.selectAll("rect")
-                .data(newDataset);
-
-            bars.enter()
-                .append("rect")
-                .merge(bars)
-                .transition()
-                .ease(d3.easeElastic)
-                .duration(2000)
+             //removing button
+             d3.select("#removingButton").on("click", function(){
+                dataset.shift()
+                xScale.domain(d3.range(dataset.length));
                 
-                .attr("y", function(d) {
-                    return h - (d * 4);
+
+            var bars = svg1.selectAll("rect")
+                .data(dataset);
+
+            svg1.selectAll("rect")
+                .transition()
+                .duration(1000)
+                .attr("x", function(d,i){
+                    return xScale(i);
                 })
-                .attr("height", function(d) {
-                    return d * 4;
+                .attr("y", function(d){
+                    return h - yScale(d);
                 })
-                bars.exit().remove();
+                .attr("width", xScale.bandwidth())
+                .attr("height", function(d){
+                    return yScale(d);
+                })
+                
+                
+                bars.exit()
+                    //.transition()
+                    //.duration(500)
+                    .attr("x",w)
+                    .remove();
             });
 
            
@@ -160,23 +180,9 @@
                 labels.exit().remove();
 
                 // Update the bars
-                var bars = svg1.selectAll("rect")
-                    .data(newDataset);
 
-                bars.enter()
-                    .append("rect")
-                    .merge(bars)
-                    .transition()
-                    .duration(500)
-                    .attr("y", function(d) {
-                        return h - (d * 4);
-                    })
-                    .attr("height", function(d) {
-                        return d * 4;
-                    });
+            
 
-                bars.exit().remove();
+
+              
                 
-             
-               
-            });

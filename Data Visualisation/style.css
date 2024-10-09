@@ -66,6 +66,7 @@ footer p {
     display: flex;
     position: relative;
     margin-right: 50%;
+    height: 250px;
     
     
 }
@@ -211,6 +212,46 @@ footer p {
     border-radius: 50px;
     width: 100px;
 }
+
+.lab6{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: lightcoral;
+    border-radius: 50px;
+    margin-left: 50px;
+    
+}
+
+.lab6 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box6{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l6{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
+.main-box2{
+    padding-top: 100px;
+    display: flex;
+    position: relative;
+    margin-right: 50%;
+    height: 250px;
+    padding-bottom: 10%;
+    
+}
+
 
 
 
