@@ -156,6 +156,62 @@ footer p {
     width: 100px;
 }
 
+.lab4{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: violet;
+    border-radius: 50px;
+    margin-left: 50px;
+}
+
+.lab4 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box4{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l4{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
+.lab5{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: lightsalmon;
+    border-radius: 50px;
+    margin-left: 50px;
+}
+
+.lab5 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box5{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l5{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
 
 
 
