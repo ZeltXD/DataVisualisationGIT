@@ -71,6 +71,17 @@ footer p {
     
 }
 
+.main-box2{
+    padding-top: 100px;
+    display: flex;
+    position: relative;
+    margin-right: 50%;
+    height: 250px;
+    padding-bottom: 10%;
+    
+}
+
+
 .lab1{
    padding-right: 50px;
    padding-left: 50px;
@@ -242,15 +253,64 @@ footer p {
     width: 100px;
 }
 
-.main-box2{
-    padding-top: 100px;
-    display: flex;
-    position: relative;
-    margin-right: 50%;
-    height: 250px;
-    padding-bottom: 10%;
+.lab7{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: lightcoral;
+    border-radius: 50px;
+    margin-left: 50px;
     
 }
+
+.lab7 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box7{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l7{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
+.lab8{
+    padding-right: 50px;
+    padding-left: 50px;
+    background: lightcoral;
+    border-radius: 50px;
+    margin-left: 50px;
+    
+}
+
+.lab8 h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.box8{
+    display: grid;
+    margin-inline: 10px;
+    text-align: center;
+    
+}
+.l8{
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    background:whitesmoke;
+    border-radius: 50px;
+    width: 100px;
+}
+
 
 
 
