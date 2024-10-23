@@ -1,77 +1,53 @@
 function init() {
     var w = 300;
     var h = 300;
-    var padding = 50; // Added padding for axes
-    var dataset = []
+    var dataset = [5, 10, 20, 45, 6, 25]
 
-    d3.csv("Textlab7-1.csv", function(d) {
-        return {
-            date: new Date(+d.year, +d.month - 1),
-            number: +d.number
-        };
-    }).then(function(data) {
-        dataset = data;
+    var outerRadius = w/2;
+    var innerRadius = 0;
 
-        // Scales
-        var xScale = d3.scaleTime()
-            .domain([
-                d3.min(dataset, function(d) { return d.date; }),
-                d3.max(dataset, function(d) { return d.date; })
-            ])
-            .range([padding, w - padding]); // Account for padding
+    var arc = d3.arc()
+                .outerRadius(outerRadius)
+                .innerRadius(innerRadius)
+               
 
-        var yScale = d3.scaleLinear()
-            .domain([0, d3.max(dataset, function(d) { return d.number; })])
-            .range([h - padding, padding]); // Account for padding
+    var pie = d3.pie();
 
-        // Area generator
-        var area = d3.area()
-            .x(function(d) { return xScale(d.date); })
-            .y0(function() { return yScale.range()[0]; }) // Base line of the area (bottom of the chart)
-            .y1(function(d) { return yScale(d.number); });
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        // Create SVG container
-        var svg = d3.select("#chart")
-            .append("svg")
-            .attr("width", w)
-            .attr("height", h);
+     // Create SVG container
+     var svg = d3.select("#chart")
+     .append("svg")
+     .attr("width", w)
+     .attr("height", h);
 
-        // Draw the area
-        svg.append("path")
-            .datum(dataset)
-            .attr("class", "area")
-            .attr("d", area)
-            .style("fill", "steelblue");
+    //set up groups
+    var arcs = svg.selectAll("g.arc")
+                    .data(pie(dataset))
+                    .enter()
+                    .append("g")
+                    .attr("class", "arc")
+                    .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
 
-        // X-axis
-        var xAxis = d3.axisBottom(xScale);
-        svg.append("g")
-            .attr("transform", "translate(0, " + (h - padding) + ")")
-            .call(xAxis);
-
-        // Y-axis
-        var yAxis = d3.axisLeft(yScale);
-        svg.append("g")
-            .attr("transform", "translate(" + padding + ", 0)")
-            .call(yAxis);
-
-        // Half-million marker line
-        svg.append("line")
-            .attr("x1", padding)
-            .attr("y1", yScale(500000))
-            .attr("x2", w - padding)
-            .attr("y2", yScale(500000))
-            .attr("stroke", "red")
-            .attr("stroke-dasharray", "5,5"); // Dotted line
-
-        // Half-million marker text
-        svg.append("text")
-            .attr("x", padding + 10)
-            .attr("y", yScale(500000) - 7)
-            .attr("fill", "red")
-            .text("Half a million unemployed")
-            .style("font-size", "12px");
+    //Draw Arc Paths
+    arcs.append("path")
+    .attr("fill", function(d, i){
+        return color(i);
+    })
+    .attr("d",function(d,i){
+        return arc(d,i);
     });
+
+    //Labels
+    arcs.append("text")
+    .attr("transform", function(d) {
+        return "translate(" + arc.centroid(d) + ")";
+    })
+    .attr("text-anchor", "middle")
+    .text(function(d) {
+        return d.value;
+    });
+
 }
 
 window.onload = init;
