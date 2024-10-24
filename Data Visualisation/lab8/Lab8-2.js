@@ -70,22 +70,37 @@ function init(){
                     }
             });
 
+              // Load additional city data from a CSV file
             d3.csv("VIC_city.csv").then(function(data){
+                data = data.map(function(d) {
+                    return {
+                        place: d.place, // City name
+                        lat: +d.lat,    // Latitude
+                        lon: +d.lon     // Longitude
+                    };
+                });
+
                 svg.selectAll("circle")
                     .data(data)
                     .enter()
                     .append("circle")
                     .attr("cx", function(d){
+                        // Calculate the x-coordinate using the projection
                         return projection([d.lon, d.lat])[0];
                     })
                     .attr("cy", function(d){
+                        // Calculate the y-coordinate using the projection
                         return projection([d.lon, d.lat])[1];
                     })
-                    .attr("r", 5)
-                    .style("fill", "red")
-                    .style("opacity", 0.75);
-                });
+                    .attr("r", 5) // Set the radius of the circle
+                    .attr("fill", "red") // Set the circle color to red
+                    .append("title")
+                    .text(function(d) {
+                        return "City: " + d.place;
+                    });
+            });
         });
     });
 }
+
 window.onload =init;

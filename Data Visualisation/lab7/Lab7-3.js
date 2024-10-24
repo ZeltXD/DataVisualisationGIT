@@ -67,5 +67,34 @@ function init(){
 					return yScale(d[0]) - yScale(d[1]);  //Changed height value
 				})
 				.attr("width", xScale.bandwidth());
-}
+
+				// select the svg areas
+
+				// create a list of keys
+				var keys = ["Apple", "Orange", "Grape"]
+
+				// Usually you have a color scale in your chart already
+
+				// Add one dot in the legend for each name.
+				svg.selectAll("mydots")
+				.data(keys)
+				.enter()
+				.append("circle")
+					.attr("cx",50)
+					.attr("cy", function(d,i){ return 20 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+					.attr("r", 7)
+					.style("fill", function(d, i){ return colors(i)})
+
+				// Add one dot in the legend for each name.
+				svg.selectAll("mylabels")
+				.data(keys)
+				.enter()
+				.append("text")
+					.attr("x", 70)
+					.attr("y", function(d,i){ return 20 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+					.style("fill", function(d,i){ return colors(i)})
+					.text(function(d){ return d})
+					.attr("text-anchor", "left")
+					.style("alignment-baseline", "middle")
+			}
 window.onload = init;
