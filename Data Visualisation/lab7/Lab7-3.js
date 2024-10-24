@@ -1,6 +1,6 @@
 function init(){
     //Width and height
-			var w = 500;
+			var w = 300;
 			var h = 300;
 
 			//Original data

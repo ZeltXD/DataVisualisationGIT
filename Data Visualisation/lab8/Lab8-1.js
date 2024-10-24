@@ -5,7 +5,7 @@ function init(){
 
     var projection = d3.geoMercator()
                     .center([145, -36.5])
-                    .translate([w/2, h/2])
+                    .translate([w / 2, h / 2])
                     .scale(3000);
 
     var path = d3.geoPath()
